@@ -1,0 +1,363 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F3F7FA;
+}
+
+
+.app {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.logo-wrap {
+  height: 160px;
+  width: 100%;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.logo {
+}
+
+.filter-stops {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  width: 232px;
+  height: 252px;
+  margin-left: auto;
+  margin-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.filter-closed_btn {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background-image: url('/images/closed.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: none;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 900px)  { 
+  .filter-stops {
+    display: none;
+  }
+  .filter-open_btn {
+    display: inline;
+    position: fixed;
+    left: 40%;
+    bottom: 25px;
+    width: 95px;
+    height: 40px;
+    padding-right: 10px;
+    border: 1px solid #DFE5EC;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height, or 167% */
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: end;
+    outline: none;
+    /* Frequently Used/Primary 500 */
+    background: #1b97f3;
+    background-image: url('/images/filter.svg');
+    background-repeat: no-repeat;
+    background-position: 1% 50%;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+
+  .filter-open_btn:active::after {
+    content: '';
+    position: fixed;
+    left: 40%;
+    bottom: 25px; 
+    width: 84px;
+    height: 38px;
+    padding-right: 10px;
+    border: 1px solid #DFE5EC;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, .20);
+  }
+
+  .filter-modal {
+    display: block;
+    position: fixed;
+    z-index: 200;
+    top: 30%;
+    left: 35%;
+  }
+
+  .background-modal {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    width: 100%;  
+    height: 100%;
+    background: rgba(0, 0, 0, .20);
+  }
+}
+
+@media (min-width: 900px)  { 
+  .filter-open_btn {
+    display: none;
+  }
+
+  .filter-closed_btn {
+    display: none;
+  }
+}
+
+.filter-header {
+  width: 192px;
+  height: 12px;
+  margin-left: 20px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 12px;
+  /* identical to box height, or 100% */
+  display: flex;
+  align-items: flex-end;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #4A4A4A;
+}
+
+.filter-content-list_checkbox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.filter-content-item {
+  height: 40px;
+  padding-left: 50px;
+  padding-top: 10px;
+}
+
+.filter-content-item:hover {
+  background: #F1FCFF;
+}
+
+.filter-content-item_label {
+  width: 100%;
+  height: 20px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 20px;
+  /* identical to box height, or 154% */
+  display: block;
+  align-items: center;
+  color: #4A4A4A;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: absolute;
+  left: 20px;
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 1px solid #2196F3;
+  box-sizing: border-box;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.checkbox::after {
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-image: url('/images/shape.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.filter-content-item_input {
+  display: none;
+}
+
+.filter-content-item_input:not(:checked) + .checkbox::after {
+  display: none;
+}
+
+.filter-content-item_input:checked + .checkbox::after {
+  display: inline;
+}
+
+.filter-content-item_input:not(:checked) + .checkbox {
+  border-color: #9ABBCE;
+}
+
+.filter-content-item_input:checked + .checkbox {
+  border-color: #2196F3;
+}
+
+.content {
+  margin-right: auto;
+}
+
+@media (max-width: 900px)  { 
+  .content {
+    margin-left: auto;
+  }
+}
+
+.sorting-tabs {
+  display: flex;
+  width: 503px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.sorting-tab {
+  width: 50%;
+  height: 100%;
+  /* Primary Colors/White */
+  background: #FFFFFF;
+  /* Secondary Colors/Border */
+  border: 1px solid #DFE5EC;
+  box-sizing: border-box;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 167% */
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #4A4A4A;
+  cursor: pointer;
+}
+
+.sorting-tab_active {
+  outline: none;
+  /* Frequently Used/Primary 500 */
+  background: #2196F3;
+  color: #FFFFFF;
+}
+
+.tickets {
+
+}
+
+.ticket {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 502px;
+  height: 184px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.ticket-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 432px;
+  height: 36px;
+}
+
+.ticket-price {
+  width: 147px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  color: #2196F3;
+}
+
+.ticket-carrier_img {
+  height: 36px;
+  width: 110px;
+}
+
+.ticket-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 462px;
+  height: 88px;
+}
+
+.ticket-preview__segment {
+  display: flex;
+  height: 39px;
+  justify-content: space-between;
+}
+
+.ticket-preview__flight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 141px;
+}
+
+.ticket-preview__flight-label {
+  margin: 0;
+  height: 18px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height, or 150% */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #A0B0B9;
+}
+
+.ticket-preview__flight-value {
+  margin: 0;
+  height: 21px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height, or 150% */
+  display: flex;
+  align-items: center;
+  color: #4A4A4A;
+  }
