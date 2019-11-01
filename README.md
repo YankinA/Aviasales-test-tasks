@@ -1,4 +1,4 @@
-## Aviasales - [Link](https://yankina.github.io/Event-Calendar)
+## Aviasales - [Link](https://aviasales-test-tasks.firebaseapp.com/)
 * Тестовое задание для frontend-разработчика - [Задание.](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend)
 
 ### Упрощенный макет содержит:

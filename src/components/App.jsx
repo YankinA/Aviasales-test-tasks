@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import uniqid from 'uniqid';
-import style from '../../style/style.less';
 import FilterStops from './FilterStops';
 import Sorting from './Sorting';
 import Ticket from './Ticket';
+import logo from '../images/logo.svg';
 
 const mapStateToProps = (state) => {
   const props = {
@@ -73,9 +73,9 @@ class App extends React.Component {
       return sortMethods[sorting]();
     });
     return (
-      <div className={style.app}>
-        <div className={style['logo-wrap']}>
-          <img alt="logo" className={style.logo} src="/images/logo.svg" />
+      <div className="app">
+        <div className="logo-wrap">
+          <img alt="logo" className="logo" src={logo} />
         </div>
         <FilterStops
           filterStopsState={filterStopsState}
@@ -83,9 +83,9 @@ class App extends React.Component {
           toggleCheckboxes={this.toggleCheckboxes}
           closesFilterStops={this.closesFilterStops}
         />
-        <main className={style.content}>
+        <main className="content">
           <Sorting sorting={sorting} changeSort={this.changeSort} />
-          <div className={style.tickets}>
+          <div className="tickets">
             {sortedTickets.slice(0, 5).map(ticket => <Ticket ticket={ticket} key={uniqid()} />)}
           </div>
         </main>
@@ -96,10 +96,10 @@ class App extends React.Component {
               tabIndex={0}
               onClick={this.closesFilterStops}
               onKeyDown={this.closesFilterStops}
-              className={style['background-modal']}
+              className="background-modal"
             />
           )
-          : <button onClick={this.openFilterStops} type="submit" className={style['filter-open_btn']}>ФИЛЬТР</button>}
+          : <button onClick={this.openFilterStops} type="submit" className="filter-open_btn">ФИЛЬТР</button>}
       </div>
     );
   }

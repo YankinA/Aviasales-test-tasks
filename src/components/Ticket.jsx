@@ -1,5 +1,4 @@
 import React from 'react';
-import style from '../../style/style.less';
 
 const addDate = (currentDate, setDateObj) => {
   currentDate.setDate(currentDate.getDate() + setDateObj.day);
@@ -45,22 +44,22 @@ export default class Ticket extends React.Component {
 
     const stopsList = ['Без пересадок', 'Пересадка', 'Пересадки', 'Пересадки'];
     return (
-      <div className={style['ticket-preview__segment']}>
-        <div className={style['ticket-preview__flight']}>
-          <p className={style['ticket-preview__flight-label']}>{`${origin} – ${destination}`}</p>
-          <p className={style['ticket-preview__flight-value']}>{`${dardepartureDate} - ${arrivalDate}`}</p>
+      <div className="ticket-preview__segment">
+        <div className="ticket-preview__flight">
+          <p className="ticket-preview__flight-label">{`${origin} – ${destination}`}</p>
+          <p className="ticket-preview__flight-value">{`${dardepartureDate} - ${arrivalDate}`}</p>
         </div>
-        <div className={style['ticket-preview__flight']}>
-          <p className={style['ticket-preview__flight-label']}>В пути</p>
-          <p className={style['ticket-preview__flight-value']}>
+        <div className="ticket-preview__flight">
+          <p className="ticket-preview__flight-label">В пути</p>
+          <p className="ticket-preview__flight-value">
             {`${formatDurationTime(durationTimeObj)}`}
           </p>
         </div>
-        <div className={style['ticket-preview__flight']}>
-          <p className={style['ticket-preview__flight-label']}>
+        <div className="ticket-preview__flight">
+          <p className="ticket-preview__flight-label">
             {`${stops.length || ''} ${stopsList[stops.length]}`}
           </p>
-          <p className={style['ticket-preview__flight-value']}>{stops.join(' ')}</p>
+          <p className="ticket-preview__flight-value">{stops.join(' ')}</p>
         </div>
       </div>
     );
@@ -71,12 +70,12 @@ export default class Ticket extends React.Component {
     const flightThere = segments[0];
     const flightBack = segments[1];
     return (
-      <section className={style.ticket}>
-        <div className={style['ticket-header']}>
-          <span className={style['ticket-price']}>{`${String(price).slice(0, -3)} ${String(price).slice(-3)} Р`}</span>
-          <img className={style['ticket-carrier_img']} src={`//pics.avs.io/99/36/${carrier}@2x.png`} alt={carrier} />
+      <section className="ticket">
+        <div className="ticket-header">
+          <span className="ticket-price">{`${String(price).slice(0, -3)} ${String(price).slice(-3)} Р`}</span>
+          <img className="ticket-carrier_img" src={`//pics.avs.io/99/36/${carrier}@2x.png`} alt={carrier} />
         </div>
-        <div className={style['ticket-body']}>
+        <div className="ticket-body">
           {this.ticketPreviewSegment(flightThere)}
           {this.ticketPreviewSegment(flightBack)}
         </div>
